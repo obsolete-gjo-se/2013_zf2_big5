@@ -1,0 +1,15 @@
+<div class="header">
+    <h1>Create Controller</h1>
+</div>
+    <?php
+$formName = $this->controllerAdminCreate;
+$formType = 'horizontal';
+
+if ($formName) {
+
+    $formName->prepare();
+    echo $this->formTwb($formName, $formType);
+}
+
+
+

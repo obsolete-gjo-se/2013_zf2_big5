@@ -1,0 +1,48 @@
+<div class="header">
+    <h1>Controllers</h1>
+    <?php echo $this->showMessages(); ?>
+</div>
+<div class="content">
+    <a href="<?php echo $this->url('resource-controller-admin-create'); ?>">Neu anlegen</a>
+    <?php if (count($this->controllerAdminRead)): ?>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><?php echo $this->translate('ID'); ?></th>
+                <th><?php echo $this->translate('Module'); ?></th>
+                <th><?php echo $this->translate('Name'); ?></th>
+                <th><?php echo $this->translate('Description'); ?></th>
+                <th><?php echo $this->translate('Ist Aktiv'); ?></th>
+                <th><?php echo $this->translate('Actions'); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+        <?php foreach ($this->controllerAdminRead as $controllerAdminRead): ?>
+                <tr>
+                    <td>
+                        <?php echo $this->escapeHtml($controllerAdminRead->getId()); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->escapeHtml($controllerAdminRead->getModule()->getName()); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->escapeHtml($controllerAdminRead->getName()); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->escapeHtml($controllerAdminRead->getDescription()); ?>
+                    </td>
+                    <td>
+                        <?php echo $this->yesNo($this->escapeHtml($controllerAdminRead->getIsActive())); ?>
+                    </td>
+                    <td>
+                        <a href="<?php echo $this->url('resource-controller-admin-update') . $controllerAdminRead->getId(); ?>">Update</a> |
+                        <a href="<?php echo $this->url('resource-controller-admin-delete') . $controllerAdminRead->getId(); ?>">Delete</a>
+                    </td>
+                </tr>
+        <?php endforeach ?>
+    </tbody>
+    <?php endif ?>
+    </table>
+</div>
+
+

@@ -1,0 +1,16 @@
+<div class="header">
+    <h1>Update Controller</h1>
+</div>
+    <?php
+$formName = $this->controllerAdminUpdate;
+$formType = 'horizontal';
+
+if ($formName) {
+
+    $formName->prepare();
+    echo $this->formTwb($formName, $formType);
+}
+
+
+
+
